@@ -2,7 +2,7 @@
 
 Automatically sync your [VS Code Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) colors to [OpenCode](https://opencode.ai) themes.
 
-When you open a project in OpenCode that has Peacock colors configured, this plugin reads the color and generates a matching OpenCode theme with your Peacock accent color.
+When you open a project in OpenCode that has Peacock colors configured, this plugin reads the color and generates a matching OpenCode theme with your Peacock accent color - using OpenCode's default theme as the base and respecting dark/light mode.
 
 ## How It Works
 
@@ -17,8 +17,8 @@ Your Project/
 ```
 
 1. **Reads** `peacock.color` or `peacock.remoteColor` from `.vscode/settings.json`
-2. **Loads** your base theme (default: `theme-darker`) from `~/.config/opencode/themes/`
-3. **Generates** a `peacock.json` theme that inherits your base theme but overrides accent colors
+2. **Generates** a minimal `peacock.json` theme that only overrides accent colors
+3. **Uses OpenCode's default theme** as the base (respects dark/light mode automatically)
 4. **Updates** the project's `opencode.json` to use the `peacock` theme
 
 ## Installation
@@ -44,18 +44,7 @@ cp src/index.ts ~/.config/opencode/plugin/peacock-sync.ts
 
 ## Setup
 
-### 1. Create a Base Theme
-
-The plugin needs a base theme to inherit from. Copy the included `theme-darker.json` or create your own:
-
-```bash
-mkdir -p ~/.config/opencode/themes
-cp themes/theme-darker.json ~/.config/opencode/themes/
-```
-
-The base theme should follow [OpenCode's theme format](https://opencode.ai/docs/themes).
-
-### 2. Configure Peacock in VS Code
+### 1. Configure Peacock in VS Code
 
 If you haven't already, install [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) in VS Code and set a color for your workspace:
 
@@ -65,7 +54,7 @@ If you haven't already, install [Peacock](https://marketplace.visualstudio.com/i
 
 This creates a `.vscode/settings.json` with your Peacock color.
 
-### 3. Open Your Project in OpenCode
+### 2. Open Your Project in OpenCode
 
 ```bash
 cd your-project
@@ -81,30 +70,18 @@ The plugin will automatically:
 
 The plugin overrides these theme properties with your Peacock color:
 
-| Property | Color Used |
-|----------|------------|
-| `primary` | Peacock color |
-| `accent` | Peacock +15% lighter |
-| `secondary` | Peacock -15% darker |
-| `borderActive` | Peacock color |
-| `markdownHeading` | Peacock color |
-| `markdownLink` | Peacock color |
-| `markdownLinkText` | Peacock +15% lighter |
-| `markdownListItem` | Peacock color |
+| Property | Dark Mode | Light Mode |
+|----------|-----------|------------|
+| `primary` | Peacock color | Peacock color |
+| `accent` | Peacock +15% lighter | Peacock -15% darker |
+| `secondary` | Peacock -15% darker | Peacock +15% lighter |
+| `borderActive` | Peacock color | Peacock color |
+| `markdownHeading` | Peacock color | Peacock color |
+| `markdownLink` | Peacock color | Peacock color |
+| `markdownLinkText` | Peacock lighter | Peacock darker |
+| `markdownListItem` | Peacock color | Peacock color |
 
-All other colors are inherited from your base theme.
-
-## Configuration
-
-### Changing the Base Theme
-
-By default, the plugin uses `theme-darker` as the base theme. To use a different base theme, modify the `DEFAULT_BASE_THEME` constant in the plugin source:
-
-```typescript
-const DEFAULT_BASE_THEME = "your-theme-name"
-```
-
-The theme file should exist at `~/.config/opencode/themes/your-theme-name.json`.
+All other colors (text, background, syntax highlighting, etc.) come from OpenCode's default theme.
 
 ## Example
 
@@ -123,26 +100,21 @@ If your Peacock color is `#215732` (green):
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
     "peacock": "#215732",
-    "peacockLight": "#2f7c47",
-    "peacockDark": "#143320"
+    "peacockLight": "#368e52",
+    "peacockDark": "#0c2012"
   },
   "theme": {
     "primary": { "dark": "peacock", "light": "peacock" },
-    "accent": { "dark": "peacockLight", "light": "peacockLight" },
-    "secondary": { "dark": "peacockDark", "light": "peacockDark" },
+    "accent": { "dark": "peacockLight", "light": "peacockDark" },
+    "secondary": { "dark": "peacockDark", "light": "peacockLight" },
     "borderActive": { "dark": "peacock", "light": "peacock" },
-    ...
+    "markdownHeading": { "dark": "peacock", "light": "peacock" },
+    "markdownLink": { "dark": "peacock", "light": "peacock" },
+    "markdownLinkText": { "dark": "peacockLight", "light": "peacockDark" },
+    "markdownListItem": { "dark": "peacock", "light": "peacock" }
   }
 }
 ```
-
-## Included Base Theme
-
-This repo includes `themes/theme-darker.json`, a dark theme based on the [One Dark](https://github.com/mazeaudit/theme) "Theme Darker" variant with:
-
-- Background: `#23272e`
-- Text: `#abb2bf`
-- Syntax highlighting matching Atom One Dark
 
 ## License
 

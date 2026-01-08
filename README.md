@@ -1,6 +1,12 @@
-# ChromaPlume
+<p align="center">
+  <img src="transparentChroma.png" alt="ChromaPlume" width="200">
+</p>
 
-> Sync your feathers. Code in color.
+<h1 align="center">ChromaPlume</h1>
+
+<p align="center">
+  <em>Sync your feathers. Code in color.</em>
+</p>
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/hwgprojects/opencode-chromaplume?style=flat-square&color=9b5de5) ![npm](https://img.shields.io/npm/v/chromaplume?style=flat-square&color=00bbf9) ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/hwgprojects/opencode-chromaplume/ci.yml?style=flat-square)
 

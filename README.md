@@ -148,5 +148,5 @@ MIT License - because open source should be as free as a bird in flight.
 ---
 
 <div align="center">
-  <sub>Made with love by developers who believe your tools should be as vibrant as your code</sub>
+  <sub>Made with love by a developer who believes your tools should be as vibrant as your code</sub>
 </div>

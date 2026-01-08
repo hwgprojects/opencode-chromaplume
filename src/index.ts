@@ -191,10 +191,10 @@ async function ensureProjectConfig(
 // Plugin Export
 // ============================================================================
 
-export const PeacockSyncPlugin: Plugin = async ({ directory, client }) => {
+export const ChromaPlumePlugin: Plugin = async ({ directory, client }) => {
   const log = (message: string) => {
     client.app.log({
-      service: "peacock-sync",
+      service: "chromaplume",
       level: "info",
       message,
     })
@@ -236,4 +236,4 @@ export const PeacockSyncPlugin: Plugin = async ({ directory, client }) => {
   }
 }
 
-export default PeacockSyncPlugin
+export default ChromaPlumePlugin

@@ -1,7 +1,7 @@
 {
-  "name": "opencode-peacock-sync",
+  "name": "opencode-chromaplume",
   "version": "1.0.0",
-  "description": "OpenCode plugin that syncs VS Code Peacock colors to OpenCode themes",
+  "description": "Sync VS Code Peacock colors to OpenCode themes",
   "main": "src/index.ts",
   "type": "module",
   "keywords": [
@@ -10,18 +10,19 @@
     "peacock",
     "vscode",
     "theme",
-    "color-sync"
+    "color-sync",
+    "chromaplume"
   ],
   "author": "hwg",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hwgprojects/opencode-peacock-sync.git"
+    "url": "git+https://github.com/hwgprojects/opencode-chromaplume.git"
   },
   "bugs": {
-    "url": "https://github.com/hwgprojects/opencode-peacock-sync/issues"
+    "url": "https://github.com/hwgprojects/opencode-chromaplume/issues"
   },
-  "homepage": "https://github.com/hwgprojects/opencode-peacock-sync#readme",
+  "homepage": "https://github.com/hwgprojects/opencode-chromaplume#readme",
   "peerDependencies": {
     "@opencode-ai/plugin": "*"
   },

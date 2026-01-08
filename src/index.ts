@@ -130,7 +130,8 @@ interface ThemeFile {
 }
 
 async function loadBaseTheme(baseThemeName: string): Promise<ThemeFile | null> {
-  const configDir = process.env.XDG_CONFIG_HOME || join(homedir(), ".config")
+  const home = process.env.HOME || homedir()
+  const configDir = process.env.XDG_CONFIG_HOME || join(home, ".config")
   const themePath = join(configDir, "opencode", "themes", `${baseThemeName}.json`)
 
   try {

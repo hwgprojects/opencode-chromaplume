@@ -1,0 +1,36 @@
+{
+  "name": "opencode-peacock-sync",
+  "version": "1.0.0",
+  "description": "OpenCode plugin that syncs VS Code Peacock colors to OpenCode themes",
+  "main": "src/index.ts",
+  "type": "module",
+  "keywords": [
+    "opencode",
+    "opencode-plugin",
+    "peacock",
+    "vscode",
+    "theme",
+    "color-sync"
+  ],
+  "author": "hwg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hwgprojects/opencode-peacock-sync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hwgprojects/opencode-peacock-sync/issues"
+  },
+  "homepage": "https://github.com/hwgprojects/opencode-peacock-sync#readme",
+  "peerDependencies": {
+    "@opencode-ai/plugin": "*"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "latest",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "src",
+    "themes"
+  ]
+}

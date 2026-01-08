@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="transparentChroma.png" alt="ChromaPlume">
+  <img src="transparentChroma1.png" alt="ChromaPlume">
 </p>
 
 <h1 align="center">ChromaPlume</h1>
